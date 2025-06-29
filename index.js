@@ -12,13 +12,11 @@ const tutorials = [
 ];
 
 function titleCased() {
-  return tutorials.map(function (title) {
-    return title
-      .split(" ") // Split the string into words
-      .map(function (word) {
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); // Capitalize first letter
-      })
-      .join(" "); // Join words back into a sentence
+  return tutorials.map(function (sentence) {
+    let words = sentence.split(" ");
+    let capitalizedWords = words.map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+    return capitalizedWords.join(" ");
   });
 }
-

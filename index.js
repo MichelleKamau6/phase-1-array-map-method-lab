@@ -15,9 +15,20 @@ const tutorials = [
 
 function titleCased() {
   return tutorials.map(tutorial => {
-    return tutorial
-      .split(" ") // split sentence into words
-      .map(word => word[0].toUpperCase() + word.slice(1)) // capitalize first letter
-      .join(" "); // join the words back into a sentence
-  });
-}
+    let result = '';
+    let capitalizeNext = true;
+
+    for (let i = 0; i < tutorial.length; i++) {
+      const char = tutorial[i];
+
+      if (capitalizeNext && char !== ' ') {
+        result += char.toUpperCase();
+        capitalizeNext = false;
+      } else {
+        result += char.toLowerCase();
+      }
+
+      if (char === ' ') {
+        capitalizeNext = true;
+      }
+    }

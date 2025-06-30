@@ -1,5 +1,4 @@
 const tutorials = [
-  [
   'What Does The This Keyword Mean?',
   'What Is The Constructor OO Pattern?',
   'Implementing Blockchain Web API',
@@ -10,25 +9,13 @@ const tutorials = [
   'What Is The Difference Between == And ===?',
   'What Is The Difference Between Event Capturing And Bubbling?',
   'What Is JSONP?'
-]
 ];
 
 function titleCased() {
   return tutorials.map(tutorial => {
-    let result = '';
-    let capitalizeNext = true;
-
-    for (let i = 0; i < tutorial.length; i++) {
-      const char = tutorial[i];
-
-      if (capitalizeNext && char !== ' ') {
-        result += char.toUpperCase();
-        capitalizeNext = false;
-      } else {
-        result += char.toLowerCase();
-      }
-
-      if (char === ' ') {
-        capitalizeNext = true;
-      }
-    }
+    return tutorial
+      .split(" ") // split sentence into words
+      .map(word => word[0].toUpperCase() + word.slice(1)) // capitalize first letter
+      .join(" "); // join the words back into a sentence
+  });
+}

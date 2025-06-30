@@ -12,15 +12,13 @@ const tutorials = [
   'What Is JSONP?'
 ]
 ];
+
 function titleCased() {
-  return tutorials.map(function (sentence) {
-    const words = sentence.split(" ");
+  return tutorials.map(function (tutorial) {
+    const words = tutorial.split(" "); // tutorial must be a string
     const capitalizedWords = words.map(function (word) {
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      return word.charAt(0).toUpperCase() + word.slice(1);
     });
     return capitalizedWords.join(" ");
   });
 }
-
-console.log(titleCased());
-

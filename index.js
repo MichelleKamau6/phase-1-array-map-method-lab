@@ -14,12 +14,10 @@ const tutorials = [
 ];
 
 function titleCased() {
-  return tutorials.map(function (title) {
-    return title
-      .split(" ")
-      .map(function (word) {
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); // Capitalize first letter
-      })
-      .join(" ");
+  return tutorials.map(tutorial => {
+    return tutorial
+      .split(" ") // split sentence into words
+      .map(word => word[0].toUpperCase() + word.slice(1)) // capitalize first letter
+      .join(" "); // join the words back into a sentence
   });
 }
